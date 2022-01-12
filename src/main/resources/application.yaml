@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+keycloak:
+  enabled: true
+  realm: techfix
+  auth-server-url: http://localhost:9000/auth
+  ssl-required: none
+  resource: oidc-client
+  credentials:
+    secret: DtDdAA0A3G29HvBp4DvdEfwhFYPrKlF6
+  use-resource-role-mappings: true
+  securityConstraints:
+    - authRoles: KC_Role
+      securityCollections:
+        - name: admin stuff
+          patterns: [ '/api/*' ]
